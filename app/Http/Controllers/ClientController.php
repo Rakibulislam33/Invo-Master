@@ -69,7 +69,7 @@ class ClientController extends Controller
                 'status'     => $request->status,
             ]);
 
-            event(new ActivityEvent('Client ',' Created','Client',Auth::id()));
+            event(new ActivityEvent('Client '.$request->name.' Created','Client',Auth::id()));
 
             // Return Response
             return redirect()->route('client.index')->with('success', 'Client Added Successfully!');
@@ -155,7 +155,7 @@ class ClientController extends Controller
                 'status'     => $request->status,
             ]);
 
-            event(new ActivityEvent('client ',' Updated','Client',Auth::id()));
+            event(new ActivityEvent('client '.$request->name.' Updated','Client',Auth::id()));
 
 
             // Return Response
